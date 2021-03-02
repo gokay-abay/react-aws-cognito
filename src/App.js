@@ -5,6 +5,7 @@ import Protected from "./components/Protected"
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
 import GuardedRoute from "./components/auth/GuardedRoute"
+import Navbar from "./components/Navbar"
 
 export default function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false)
@@ -20,22 +21,10 @@ export default function App() {
 
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home Page</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </div>
+      <Navbar
+        isAuthenticated={isAuthenticated}
+        authenticate={authenticateUser}
+      />
       <Switch>
         <Route exact path="/">
           <Home />

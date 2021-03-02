@@ -48,7 +48,7 @@ export default function Login({ authenticate }) {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <input type="submit" value="submit" className="button is-success" />
+          <input type="submit" value="submit" className="button is-light" />
         </p>
       </form>
     </section>

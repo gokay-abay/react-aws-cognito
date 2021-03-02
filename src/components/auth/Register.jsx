@@ -66,7 +66,7 @@ export default function Register({ authenticate }) {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <input type="submit" value="submit" className="button is-success" />
+          <input type="submit" value="submit" className="button is-primary" />
         </p>
       </form>
     </section>
