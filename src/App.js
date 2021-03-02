@@ -51,7 +51,7 @@ export default function App() {
           <Register authenticate={authenticateUser} />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login authenticate={authenticateUser} />
         </Route>
       </Switch>
     </Router>
