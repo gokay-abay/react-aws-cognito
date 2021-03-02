@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
 import Home from "./components/Home"
 import Protected from "./components/Protected"
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
+import GuardedRoute from "./components/auth/GuardedRoute"
 
 export default function App() {
+  const [isAuthenticated, setisAuthenticated] = useState(false)
+
   return (
     <Router>
       <div>
@@ -29,7 +32,11 @@ export default function App() {
           <Home />
         </Route>
         <Route exact path="/protected">
-          <Protected />
+          <GuardedRoute
+            path="/protected"
+            auth={isAuthenticated}
+            component={Protected}
+          />
         </Route>
         <Route exact path="/register">
           <Register />
