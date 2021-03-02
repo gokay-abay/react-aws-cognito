@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
 import Home from "./components/Home"
 import Protected from "./components/Protected"
@@ -8,6 +8,15 @@ import GuardedRoute from "./components/auth/GuardedRoute"
 
 export default function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false)
+
+  const authenticateUser = (authState) => {
+    setisAuthenticated(authState)
+    console.log(isAuthenticated)
+  }
+
+  useEffect(() => {
+    console.log(`Authenticated: ${isAuthenticated}`)
+  }, [isAuthenticated])
 
   return (
     <Router>
@@ -39,7 +48,7 @@ export default function App() {
           />
         </Route>
         <Route exact path="/register">
-          <Register />
+          <Register authenticate={authenticateUser} />
         </Route>
         <Route exact path="/login">
           <Login />
